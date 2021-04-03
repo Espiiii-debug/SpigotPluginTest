@@ -8,6 +8,8 @@ import me.espiiii.test.spigot.pluginTest.commands.CommandGM;
 import me.espiiii.test.spigot.pluginTest.commands.CommandKit;
 import me.espiiii.test.spigot.pluginTest.commands.SayHelloCommand;
 import me.espiiii.test.spigot.pluginTest.events.JoinEvent;
+import me.espiiii.test.spigot.pluginTest.events.OnClickInventoryEvent;
+import me.espiiii.test.spigot.pluginTest.gui.TeamSelectorGUI;
 
 public class Main extends JavaPlugin
 {
@@ -26,7 +28,10 @@ public class Main extends JavaPlugin
 		this.getCommand("welcome").setExecutor(new SayHelloCommand());
 		this.getCommand("gm").setExecutor(new CommandGM());
 		
+		
 		Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
+		Bukkit.getPluginManager().registerEvents(new TeamSelectorGUI(), this);
+		Bukkit.getPluginManager().registerEvents(new OnClickInventoryEvent(), this);
 		
 		
 		
