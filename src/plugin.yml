@@ -24,3 +24,7 @@ commands:
       desctiption: Gamemode Changer
       usage: /<command>
       permission: PluginTest.doCommandGm
+   question:
+      description: permet de jouer au minijeu
+      usage: /<command>
+      permission: PluginTest.doCommandQuestion
