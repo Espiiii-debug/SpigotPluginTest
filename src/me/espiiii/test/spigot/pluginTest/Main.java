@@ -6,7 +6,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.espiiii.test.spigot.pluginTest.commands.CommandGM;
 import me.espiiii.test.spigot.pluginTest.commands.CommandKit;
+import me.espiiii.test.spigot.pluginTest.commands.QuestionCommand;
 import me.espiiii.test.spigot.pluginTest.commands.SayHelloCommand;
+import me.espiiii.test.spigot.pluginTest.events.ChatEvent;
 import me.espiiii.test.spigot.pluginTest.events.JoinEvent;
 import me.espiiii.test.spigot.pluginTest.events.OnClickInventoryEvent;
 import me.espiiii.test.spigot.pluginTest.gui.TeamSelectorGUI;
@@ -27,11 +29,12 @@ public class Main extends JavaPlugin
 		this.getCommand("kit").setExecutor(new CommandKit());
 		this.getCommand("welcome").setExecutor(new SayHelloCommand());
 		this.getCommand("gm").setExecutor(new CommandGM());
-		
+		this.getCommand("question").setExecutor(new QuestionCommand());
 		
 		Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
 		Bukkit.getPluginManager().registerEvents(new TeamSelectorGUI(), this);
 		Bukkit.getPluginManager().registerEvents(new OnClickInventoryEvent(), this);
+		Bukkit.getPluginManager().registerEvents(new ChatEvent(), this);
 		
 		
 		

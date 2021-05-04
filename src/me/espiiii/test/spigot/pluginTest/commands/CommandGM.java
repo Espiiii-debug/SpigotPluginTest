@@ -17,7 +17,8 @@ public class CommandGM implements CommandExecutor
 			if(args.length != 1) return true;
 			
 			Player player = (Player) sender;
-			switch(args[0]) 
+			player.getName();
+			switch(args[0])
 			{
 			
 			case "0":
