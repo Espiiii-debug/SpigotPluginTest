@@ -21,7 +21,7 @@ public class QuestionCommand implements CommandExecutor
 	QuestionType question3 = new QuestionType("Quand est mort Louis14", "jsp", true);
 	//creation de la liste de question
 	ArrayList<QuestionType> questions = new ArrayList<QuestionType>();
-	public static QuestionType playerChoose;
+	public static QuestionType playerChoose = null;
 	public static Player player;
 	
 	@Override
@@ -34,9 +34,9 @@ public class QuestionCommand implements CommandExecutor
 		
 		if(sender instanceof Player) 
 		{
-			Player player = (Player) sender;
+			player = (Player) sender;
 			
-			if(args == null) 
+			if(args.length != 1) 
 			{
 				
 				player.sendMessage(ChatColor.RED + "[INFO]: Vous devez choisir une question. Pour lister les questions : /question list"); 
