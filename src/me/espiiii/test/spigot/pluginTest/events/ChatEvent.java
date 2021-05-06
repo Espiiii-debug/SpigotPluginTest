@@ -1,10 +1,14 @@
 package me.espiiii.test.spigot.pluginTest.events;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import me.espiiii.test.spigot.pluginTest.commands.AnagramCommand;
 import me.espiiii.test.spigot.pluginTest.commands.QuestionCommand;
+import me.espiiii.test.spigot.pluginTest.type.AnagramType;
+import me.espiiii.test.spigot.pluginTest.type.QuestionType;
 
 public class ChatEvent implements Listener 
 {
@@ -12,16 +16,30 @@ public class ChatEvent implements Listener
 	@EventHandler
 	public void PlayerChatEvent(AsyncPlayerChatEvent e)
 	{
-		e.getPlayer().sendMessage(e.getMessage());
+		QuestionType questionChoose = QuestionCommand.playerChoose;
+		Player questionPlayer = QuestionCommand.player;
 		
-		e.getPlayer().sendMessage(QuestionCommand.playerChoose.question);
-		if(QuestionCommand.playerChoose.question == null) return;
-		e.getPlayer().sendMessage("statut valide");
-		if(e.getPlayer() != QuestionCommand.player) return;
-		e.getPlayer().sendMessage("player verifié");
-		String m = e.getMessage();
+		AnagramType anagramChoose = AnagramCommand.anagramChoice;
+		Player anagramPlayer = AnagramCommand.player;
 		
-		e.setCancelled(QuestionCommand.questionTester(QuestionCommand.playerChoose, QuestionCommand.player, m));
+		if(anagramChoose != null)
+		{
+			
+			if(e.getPlayer() != anagramPlayer) return;
+			String m = e.getMessage();
+			e.setCancelled(AnagramCommand.anagramTester(anagramChoose, anagramPlayer, m));
+			
+		}
+		
+		if(questionChoose != null) 
+		{
+		
+			if(e.getPlayer() != questionPlayer) return;
+			String m = e.getMessage();
+			e.setCancelled(QuestionCommand.questionTester(questionChoose, questionPlayer, m));
+			
+		}
+		return;
 		
 	}
 	

@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.espiiii.test.spigot.pluginTest.commands.AnagramCommand;
 import me.espiiii.test.spigot.pluginTest.commands.CommandGM;
 import me.espiiii.test.spigot.pluginTest.commands.CommandKit;
 import me.espiiii.test.spigot.pluginTest.commands.QuestionCommand;
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin
 		this.getCommand("welcome").setExecutor(new SayHelloCommand());
 		this.getCommand("gm").setExecutor(new CommandGM());
 		this.getCommand("question").setExecutor(new QuestionCommand());
+		this.getCommand("anagram").setExecutor(new AnagramCommand());
 		
 		Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
 		Bukkit.getPluginManager().registerEvents(new TeamSelectorGUI(), this);

@@ -28,3 +28,7 @@ commands:
       description: permet de jouer au minijeu
       usage: /<command>
       permission: PluginTest.doCommandQuestion
+   anagram:
+      description: permet de jouer au minijeu
+      usage: /<command>
+      permission: PluginTest.doCommandQuestion
